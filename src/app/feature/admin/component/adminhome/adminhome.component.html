@@ -1,0 +1,9 @@
+<p>.</p>
+<div class="header-container">
+    <div class="header-lbl" >
+        <h1>Create Food Truck Schedule</h1>
+    </div>
+    <div class="header-btn"><button (click)="saveData()" mat-button mat-flat-button color="primary">Save Data</button></div>
+</div>
+
+<daypilot-month #calendar [config]="config" [events]="events"></daypilot-month>
