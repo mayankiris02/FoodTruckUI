@@ -34,15 +34,13 @@ export class FoodTruckComponent implements OnInit {
   constructor(public dialog: MatDialog, private foodTruckService: FoodTruckService) { }
 
   ngOnInit(): void {
-    //debugger
-    var foodTruckGetSubscription = this.foodTruckService.getAllFoodTrucks().subscribe((data: any) => {
+   var foodTruckGetSubscription = this.foodTruckService.getAllFoodTrucks().subscribe((data: any) => {
       this.dataSource.data = data
     }); debugger
     this.subscriptions.push(foodTruckGetSubscription);
   }
 
-  ngAfterViewInit() {
-    //this.dataSource = new MatTableDataSource(this.EmpData);
+  ngAfterViewInit() {    
     this.dataSource.paginator = this.paginator;
   }
 
@@ -74,7 +72,7 @@ export class FoodTruckComponent implements OnInit {
       });
       this.table.renderRows();
     });
-    debugger
+    
     this.subscriptions.push(foodTruckAddSubscription);
 
   }

@@ -40,15 +40,6 @@ export class AdminHomeComponent implements OnInit {
     onEventClicked: (args) => {
       //args.control.message("Event clicked: " + args.e.text());
     },
-    /*eventHoverHandling: "Bubble",
-    bubble: new DayPilot.Bubble({
-      onLoad: (args) => {
-        // if event object doesn't specify "bubbleHtml" property 
-        // this onLoad handler will be called to provide the bubble HTML
-        args.html = "Event details";
-      }
-    }),*/
-
     contextMenu: new DayPilot.Menu({
       items: [
         { text: "Delete", onClick: (args) => { const dp = args.source.calendar; dp.events.remove(args.source); } }
@@ -56,13 +47,8 @@ export class AdminHomeComponent implements OnInit {
     }),
   }
 
-  events: any = [
+  events: any = [];
 
-
-  ]
-  tempEvents: any = [
-
-  ]
 
   @ViewChild("calendar")
   calendar!: DayPilotMonthComponent;
@@ -75,25 +61,22 @@ export class AdminHomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     var foodTruckGetSubscription = this.foodTruckService.getAllFoodTrucks().subscribe((result: any) => {
       this.prepareData(result);
-      
-    });
 
+    });
     var getFoodTruckScheduleSubscription = this.scheduleSerive.getFoodTruckSchedule(moment().year(),
       moment().month() + 1).subscribe((result: any) => {
-        debugger
-        this.prepareEventData(result);       
-       
-      });
-    this.subscriptions.push(getFoodTruckScheduleSubscription);
+        this.prepareEventData(result);
 
+      });
+
+    this.subscriptions.push(getFoodTruckScheduleSubscription);
     this.subscriptions.push(foodTruckGetSubscription);
   }
 
   prepareEventData(result: any) {
-    debugger
+
     var dataObj = result.data.map((item: any) => {
       return {
         start: item.scheduledDate,
@@ -105,7 +88,7 @@ export class AdminHomeComponent implements OnInit {
         foodTruckId: item.foodTruckId._id
       }
     });
-    
+
     this.events = this.events.concat(dataObj);
   }
 
@@ -180,12 +163,11 @@ export class AdminHomeComponent implements OnInit {
   ngAfterViewInit(): void {
 
     const from = this.calendar.control.visibleStart();
-    const to = this.calendar.control.visibleEnd();   
+    const to = this.calendar.control.visibleEnd();
 
   }
 
   calenderConfig() {
-
   }
 
   ngOnDestroy() {

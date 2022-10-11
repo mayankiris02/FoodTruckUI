@@ -3,10 +3,10 @@ export class Constants {
     public static API_ENDPOINT_UAT: string = 'http://localhost:3000/';
     public static API_ENDPOINT_PROD: string = 'http://localhost:3000/';
 
-    public static MENU_SERVICE_ADD: string = 'https://www.userdomainmock.com/';    
-    public static MENU_SERVICE_UPDATE: string = 'https://www.userdomainmock.com/';
-    public static MENU_SERVICE_DELETE: string = 'https://www.userdomainmock.com/';
-    public static MENU_SERVICE_GET: string = 'https://www.userdomainmock.com/';
+    public static MENU_SERVICE_ADD: string = 'backend/admin/foodtruck/addMenu';    
+    public static MENU_SERVICE_UPDATE: string = 'backend/admin/foodtruck/updateMenu';
+    public static MENU_SERVICE_DELETE: string = 'backend/admin/foodtruck/deleteMenu';
+    public static MENU_SERVICE_GET: string = 'backend/admin/foodtruck/getMenu';
 
     public static FOODTRUCK_SERVICE_ADD: string = 'backend/admin/foodtruck/addfoodtruck';
     public static FOODTRUCK_SERVICE_UPDATE: string = 'backend/admin/foodtruck/updatefoodtruck';
